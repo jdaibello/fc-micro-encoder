@@ -2,4 +2,10 @@ module encoder
 
 go 1.14
 
-require github.com/sirupsen/logrus v1.9.0 // indirect
+require (
+	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d
+	github.com/satori/go.uuid v1.2.0
+	github.com/sirupsen/logrus v1.9.0
+	github.com/stretchr/testify v1.8.1
+	golang.org/x/sys v0.3.0 // indirect
+)
