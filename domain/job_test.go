@@ -1,10 +1,10 @@
 package domain_test
 
 import (
-	"encoder/domain"
 	"testing"
 	"time"
 
+	"github.com/jdaibello/fc-micro-encoder/domain"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/require"
 )

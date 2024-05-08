@@ -1,9 +1,9 @@
 package database
 
 import (
-	"encoder/domain"
 	"log"
 
+	"github.com/jdaibello/fc-micro-encoder/domain"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 	_ "github.com/lib/pq"

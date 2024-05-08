@@ -2,14 +2,14 @@ package services
 
 import (
 	"context"
-	"encoder/application/repositories"
-	"encoder/domain"
-	"io"
+	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
 
 	"cloud.google.com/go/storage"
+	"github.com/jdaibello/fc-micro-encoder/application/repositories"
+	"github.com/jdaibello/fc-micro-encoder/domain"
 )
 
 type VideoService struct {
@@ -39,7 +39,7 @@ func (vs *VideoService) Download(bucketName string) error {
 
 	defer r.Close()
 
-	body, err := io.ReadAll(r)
+	body, err := ioutil.ReadAll(r)
 
 	if err != nil {
 		return err

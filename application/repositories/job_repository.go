@@ -1,9 +1,9 @@
 package repositories
 
 import (
-	"encoder/domain"
 	"fmt"
 
+	"github.com/jdaibello/fc-micro-encoder/domain"
 	"github.com/jinzhu/gorm"
 )
 

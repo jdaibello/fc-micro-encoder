@@ -1,12 +1,12 @@
 package repositories_test
 
 import (
-	"encoder/application/repositories"
-	"encoder/domain"
-	"encoder/framework/database"
 	"testing"
 	"time"
 
+	"github.com/jdaibello/fc-micro-encoder/application/repositories"
+	"github.com/jdaibello/fc-micro-encoder/domain"
+	"github.com/jdaibello/fc-micro-encoder/framework/database"
 	uuid "github.com/satori/go.uuid"
 	"github.com/stretchr/testify/require"
 )
