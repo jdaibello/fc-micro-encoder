@@ -10,7 +10,7 @@ WORKDIR /tmp/bento4
 
 ENV BENTO4_BASE_URL="http://zebulon.bok.net/Bento4/source/" \
 	BENTO4_VERSION="1-6-0-641" \
-	BENTO4_VERSION_FILE="1-6-0.641" \
+	BENTO4_VERSION_FILE="1-6-0-641" \
 	BENTO4_PATH="/opt/bento4" \
 	BENTO4_TYPE="SRC"
 
@@ -23,7 +23,7 @@ RUN apk add --update --upgrade wget python3 unzip bash gcc g++ cmake && \
 	cd ${BENTO4_PATH} && \
 	mkdir bin utils && \
 	cd ./bin  && cmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build . --config Release && cd .. && \
-	cp -R ${BENTO4_PATH}/Source/Python/utils ${BENTO4_PATH}/utils && \
+	cp -R ${BENTO4_PATH}/Source/Python/utils ${BENTO4_PATH} && \
 	cp -a ${BENTO4_PATH}/Source/Python/wrappers/. ${BENTO4_PATH}/bin
 
 
