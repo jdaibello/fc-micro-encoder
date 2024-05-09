@@ -87,14 +87,20 @@ func (vu *VideoUpload) ProcessUpload(concurrency int, doneUpload chan string) er
 		for x := 0; x < len(vu.Paths); x++ {
 			in <- x
 		}
-
-		close(in)
 	}()
 
+	countDoneWorker := 0
+
 	for r := range returnChannel {
+		countDoneWorker++
+
 		if r != "" {
 			doneUpload <- r
 			break
+		}
+
+		if countDoneWorker == len(vu.Paths) {
+			close(in)
 		}
 	}
 
@@ -107,7 +113,7 @@ func (vu *VideoUpload) UploadWorker(in chan int, returnChan chan string, uploadC
 
 		if err != nil {
 			vu.Errors = append(vu.Errors, vu.Paths[x])
-			log.Println("Error during the upload: %v. Error: %v", vu.Paths[x], err)
+			log.Println("Error during the upload: ", vu.Paths[x], ". Error: ", err)
 			returnChan <- err.Error()
 		}
 
