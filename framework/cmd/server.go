@@ -14,7 +14,7 @@ import (
 
 var db database.Database
 
-func Init() {
+func init() {
 	err := godotenv.Load()
 
 	if err != nil {
@@ -42,7 +42,7 @@ func Init() {
 	db.Env = os.Getenv("ENV")
 }
 
-func Main() {
+func main() {
 	messageChannel := make(chan amqp.Delivery)
 	jobReturnChannel := make(chan services.JobWorkerResult)
 

@@ -7,6 +7,8 @@ services:
       - .env
     volumes:
       - .:/go/src/
+    networks:
+      - fc-micro-encoder
 
   db:
     image: postgres:9.4
@@ -15,10 +17,12 @@ services:
     volumes:
       - .pgdata:/var/lib/postgresql/data
     environment:
-      - POSTGRESS_PASSWORD=root
+      - POSTGRES_PASSWORD=root
       - POSTGRES_DB=encoder
     ports:
       - "5432:5432"
+    networks:
+      - fc-micro-encoder
 
   rabbit:
     image: rabbitmq:3-management
@@ -30,3 +34,9 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
+    networks:
+      - fc-micro-encoder
+
+networks:
+  fc-micro-encoder:
+    external: false
