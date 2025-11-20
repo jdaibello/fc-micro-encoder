@@ -26,7 +26,6 @@ RUN apk add --update --upgrade wget python3 unzip bash gcc g++ cmake && \
 	cp -R ${BENTO4_PATH}/Source/Python/utils ${BENTO4_PATH} && \
 	cp -a ${BENTO4_PATH}/Source/Python/wrappers/. ${BENTO4_PATH}/bin
 
-
 WORKDIR /go/src
 
 ENTRYPOINT ["top"]
