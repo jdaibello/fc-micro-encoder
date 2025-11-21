@@ -28,4 +28,4 @@ RUN apk add --update --upgrade wget python3 unzip bash gcc g++ cmake && \
 
 WORKDIR /go/src
 
-ENTRYPOINT ["top"]
+CMD ["go", "run", "framework/cmd/server.go"]
